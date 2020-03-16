@@ -9,13 +9,25 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         Connection conn = getConnection();
-        insertBook(conn);
-        //updateBook(conn);
-        //deleteBook(conn);
-        //displayAllBooks(conn);
-        //displayABookById(conn);
-        //System.out.println(checkIfBookExistsByID(conn, 4));
-        System.out.println("end ..");
+        System.out.println("\nMENU");
+        System.out.println("1. Insert New Book\n2. Update A Book\n3. Delete A Book\n4. Display All Books\n5. Search A Book By ID\n6. Exit\n\nEnter an option: ");
+        Scanner scanner = new Scanner(System.in);
+        int ans = 1;
+        while (ans >=1 && ans <=6 ){
+            ans = scanner.nextInt();
+            if (ans == 1) insertBook(conn);
+            else if (ans == 2) updateBook(conn);
+            else if (ans == 3) deleteBook(conn);
+            else if (ans == 4) displayAllBooks(conn);
+            else if (ans == 5) displayABookById(conn);
+            else {
+                System.out.println("Exiting");
+                System.exit(0);
+            }
+
+            System.out.println("MENU");
+            System.out.println("1. Insert New Book\n2. Update A Book\n3. Delete A Book\n4. Display All Books\n5. Search A Book By ID\n6. Exit\n\nEnter an option: ");
+        }
     }
 
     public static Connection getConnection() throws Exception {
