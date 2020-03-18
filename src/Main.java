@@ -22,6 +22,7 @@ public class Main {
             else if (ans == 5) displayABookById(conn);
             else {
                 System.out.println("Exiting");
+                conn.close();
                 System.exit(0);
             }
 
